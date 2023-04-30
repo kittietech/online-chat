@@ -1,0 +1,47 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+html, body {
+  height: 100%;
+  color: #000;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: yellow;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
+}
+
+section {
+  min-height: 100vh;
+  margin: 10px;
+  background-color: red;
+  box-shadow: 0 0 10px red;
+}
+
+section:nth-child(n+0) {
+  background-color: red;
+}
+
+section:nth-child(n+1) {
+  background-color: #ff3333;
+}
+
+section:nth-child(n+2) {
+  background-color: #ff6666;
+}/*# sourceMappingURL=index.css.map */
