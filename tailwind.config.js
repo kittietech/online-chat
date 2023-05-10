@@ -27,6 +27,7 @@ module.exports = {
         },
         blue: {
           500: "#5585FF",
+          600: "#0b5ed7",
         },
         red: {
           500: "#F5544A",
@@ -38,6 +39,9 @@ module.exports = {
       fontFamily: {
         inter: ["var(--font-inter)", ...fontFamily.sans],
         icomoon: ["var(--font-icomoon)"],
+      },
+      borderRadius: {
+        "3xl": "1.25rem",
       },
     },
   },

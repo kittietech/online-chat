@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 import styles from "./Icon.module.scss";
 
-type VariantType =
+export type IconVariantType =
   | "information"
   | "attachment"
   | "chat"
@@ -18,7 +18,7 @@ type VariantType =
   | "edit";
 
 type Props = {
-  variant: VariantType;
+  variant: IconVariantType;
   className?: string;
 };
 
