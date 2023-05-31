@@ -3,11 +3,31 @@ import Input from "@/components/shared/forms/Input/Input";
 import Layout from "@/components/shared/layout/Layout";
 import Heading from "@/components/shared/typography/Heading/Heading";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+
+type FormData = z.infer<typeof schema>;
+
+const schema = z.object({
+  email: z.string().min(1, { message: "Уведіть email" }),
+});
 
 const ForgotPassword = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({ resolver: zodResolver(schema) });
+
+  const onSubmit = (data: FormData) => console.log(data);
+
   return (
     <Layout className="flex flex-col">
-      <form className="w-full px-14 pt-11 pb-8 rounded-3xl max-w-2xl m-auto bg-slate-600 border border-gray-500">
+      <form
+        className="w-full px-14 pt-11 pb-8 rounded-3xl max-w-2xl m-auto bg-slate-600 border border-gray-500"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <Heading className="mb-5">
           Забули <br />
           адресу електронної <br /> пошти/пароль?
@@ -18,7 +38,12 @@ const ForgotPassword = () => {
           пароля
         </p>
 
-        <Input type="email" name="email" placeholder="name@example.com" />
+        <Input
+          type="email"
+          placeholder="name@example.com"
+          errors={errors}
+          {...register("email")}
+        />
 
         <Button type="submit">Надішліть мені повідомлення</Button>
 
