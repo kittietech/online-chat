@@ -5,14 +5,14 @@ import { FieldErrors } from "react-hook-form";
 
 type Props = InputHTMLAttributes<HTMLInputElement> & {
   icon?: IconVariantType;
-  errors: FieldErrors;
+  errors?: FieldErrors;
 };
 
 const Input: React.ForwardRefRenderFunction<HTMLInputElement, Props> = (
   { type = "text", placeholder, name, errors, icon, ...props },
   ref
 ) => {
-  const fieldError = errors[`${name}`];
+  const fieldError = errors?.[`${name}`];
   return (
     <fieldset className="mb-7">
       <label className="relative">
